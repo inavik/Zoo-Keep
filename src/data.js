@@ -5,7 +5,7 @@
     this.name = name || 'no name';
     this.dob = dob;
   }
-
+  
   var bill = new Animal('bill', 2009);
   var jack = new Animal('jack', 2006);
 
@@ -53,7 +53,6 @@
   console.log(br);
   console.log(br.giveBirth());
   console.log(br.roar("hi!"));
-
 
 
 }());
