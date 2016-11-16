@@ -13,7 +13,7 @@
 
     });
 
-  describe('zoo animal', function () {
+    describe('zoo animal', function () {
 
       it('should create new animal', function() {
         var jack = new window.zoo.Animal('jack', 2013);
@@ -35,8 +35,8 @@
           new window.zoo.Animal();
           expect(true).to.be.false;
         } catch (err) {
-            expect(err).to.be.an.instanceof(Object);
-            expect(err).to.be.an.instanceof(TypeError);
+          expect(err).to.be.an.instanceof(Object);
+          expect(err).to.be.an.instanceof(TypeError);
         }
       });
 
@@ -45,18 +45,34 @@
           new window.zoo.Animal('matt');
           expect(true).to.be.false;
         } catch (err) {
-            console.log( err );
-            expect(err).to.be.an.instanceof(Object);
-            expect(err).to.be.an.instanceof(TypeError);
+          console.log( err );
+          expect(err).to.be.an.instanceof(Object);
+          expect(err).to.be.an.instanceof(TypeError);
         }
       });
-  });
-  // don't need to test if it should produce an error when no name or dob are given
-// test that I can create animals
-//for give birth test if it returns a baby and it's an instance of bluewhale
-      // 2
 
-    // it('should give birth')
+      it('should create an animal', function (){
+        var matt2 = new window.zoo.Animal('matt2', 2010);
+        expect(matt2).to.be.an.instanceof(Object);
+      });
+    });
+
+    describe('BlueWhale birth', function() {
+      it('should give birth to a baby mammal', function() {
+        var baby = new window.zoo.Animal('baby', 2016);
+        expect(baby).to.be.an.instanceof(Object);
+      });
+    });
+
+  });
+
+
+  // don't need to test if it should produce an error when no name or dob are given
+  // test that I can create animals
+  //for give birth test if it returns a baby and it's an instance of bluewhale
+  // 2
+
+  // it('should give birth')
 
   // describe('constructor function', function () {
   //   it('should know that Animal is a construct function', function () {
@@ -65,14 +81,14 @@
   // }
   //create namespace
 
-// var x = new Animal
-// use instanceof to test if var x is an instanceof an Animal
-// test that each animal has a name & age and its the name and age that I passed in
+  // var x = new Animal
+  // use instanceof to test if var x is an instanceof an Animal
+  // test that each animal has a name & age and its the name and age that I passed in
 
-//3 tests --> giveBirth method
+  //3 tests --> giveBirth method
 
 
-  });
+// });
 
 
 }());

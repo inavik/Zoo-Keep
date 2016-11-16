@@ -7,6 +7,7 @@
   window.zoo.BlueWhale = BlueWhale;
   window.zoo.BlackRhino = BlackRhino;
 
+
 /**
  * This will create a new animal when given a new name and date of birth
  * @param {String} name The name of the new animal
@@ -43,10 +44,9 @@
    */
   function BlueWhale(name, dob) {
     Animal.apply(this, [name, dob]); // .apply tells Animal to execute but once inside
-                                    // I want this to point to new Narwhal
-                                    // Each fn has its own this
-                                    // apply says change my context to whatever I put inside (this
-                                    // inside .apply(points to Narwhal)
+  // I want this to point to new Narwhal   // Each fn has its own this
+  // apply says change my context to whatever I put inside (this
+  // inside .apply(points to Narwhal)
   }
 
   BlueWhale.prototype = Object.create(Animal.prototype);// this sets up the chain
@@ -56,9 +56,13 @@
   BlueWhale.prototype.constructor = BlueWhale; // this flips the constructor back to Bluewhale
   BlueWhale.prototype.breed = 'BlueWhale';
 
+
+  /**
+   * This gives birth to another animal
+   * @return {Object} Gives back a baby mammal
+   */
   BlueWhale.prototype.giveBirth = function giveBirth() { // Instance Method:
     var baby = new BlueWhale('baby whale', 2016);        //function that is on an object like giveBirth
-                                                        //
     return baby; // OR return new Bluewhale('baby whale', 2016)
   }
 
