@@ -57,12 +57,14 @@
       });
     });
 
-    describe('BlueWhale birth', function() {
-      it('should give birth to a baby mammal', function() {
-        var baby = new window.zoo.Animal('baby', 2016);
+    describe('BlueWhale', function() {
+      it('should give birth to a baby whale', function() {
+        var baby = new window.zoo.BlueWhale('baby', 2016);
         expect(baby).to.be.an.instanceof(Object);
       });
-    });
+
+  
+
 
   });
 
