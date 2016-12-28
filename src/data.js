@@ -8,45 +8,43 @@
   window.zoo.BlackRhino = BlackRhino;
 
 
+
 /**
  * This will create a new animal when given a new name and date of birth
- * @param {String} name The name of the new animal
- * @throws {TypeError} If the arguments are not a string and a Number
+ * @param {String} name The name of the new Animal
  * @param {Number} dob  the number for its date of birth
+ * @throws {TypeError}  if the arguments are not a string and a Number
  */
   function Animal(name, dob) {
-    if (typeof(name) !== 'string') {
-      var err = new TypeError ('Hey! The name has to be a string!');
+    try {
+      if(typeof(name) !== 'string') {
+        throw new TypeError('Hi there, this name has to be a string!');
+      }
+    } catch (err) {
       err.userMessage = 'Sorry, our developers are cray cray';
-      throw err;
     }
-
-    if (typeof(dob) !== 'number') {
-      var err = new TypeError ('Hey! The date of birth has to be a number!');
-      err.userMessage = 'Sorry, our developers did not get this right...'
-      throw err;
+    try {
+      if(typeof(dob) !== 'number') {
+        throw new TypeError ('Hi there, the date of birth has to be a number!');
+      }
+    } catch (err1) {
+      err.userMessage = 'Sorry, our developers are cray cray';
     }
-
-    this.name = name || 'no name'; // "this" points to the "Animal" we're creating at that time
+    this.name = name;
     this.dob = dob;
   }
 
   // var bill = new Animal('bill', 2009);
   // var jack = new Animal('jack', 2006);
   //
-  // console.log('b:', bill);
-  // console.log('j:', jack);
 
   /**
-   * Giving the BlueWhale a name and dob
-   * @param {String} name This will give a new name
-   * @param {Number} dob  The dob of the BlueWhale
+   * Creates a new BlueWhale with a name and dob
+   * @param {String} name This will give BlueWhale a name
+   * @param {Number} dob  The will give BlueWhale a dob
    */
   function BlueWhale(name, dob) {
-    Animal.apply(this, [name, dob]); // .apply tells Animal to execute but once inside
-  // I want this to point to new Narwhal   // Each fn has its own this
-  // apply says change my context to whatever I put inside (this
-  // inside .apply(points to Narwhal)
+    Animal.apply(this, [name, dob]);
   }
 
   BlueWhale.prototype = Object.create(Animal.prototype);// this sets up the chain
@@ -61,8 +59,8 @@
    * This gives birth to another animal
    * @return {Object} Gives back a baby mammal
    */
-  BlueWhale.prototype.giveBirth = function giveBirth() { // Instance Method:
-    var baby = new BlueWhale('baby whale', 2016);        //function that is on an object like giveBirth
+  BlueWhale.prototype.giveBirth = function giveBirth() {
+    var baby = new BlueWhale('baby whale', 2016);
     return baby; // OR return new Bluewhale('baby whale', 2016)
   }
 
@@ -70,7 +68,7 @@
     return ("I'm swimming for an hour!");
   }
 
-  var bw = new BlueWhale('matt', 2000);
+  var bw = new BlueWhale('smurf', 2000);
   console.log(bw);
   console.log(bw.giveBirth());
   console.log(bw.swim());
@@ -81,7 +79,7 @@
    * @param {Number} dob  The date of birth of BlackRhino
    */
   function BlackRhino(name, dob) {
-    Animal.apply(this, [name, dob]); // .apply lets us change the context and it's arguments
+    Animal.apply(this, [name, dob]);
   }
 
   BlackRhino.prototype = Object.create(Animal.prototype);
