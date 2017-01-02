@@ -16,20 +16,14 @@
  * @throws {TypeError}  if the arguments are not a string and a Number
  */
   function Animal(name, dob) {
-    try {
-      if(typeof(name) !== 'string') {
-        throw new TypeError('Hi there, this name has to be a string!');
-      }
-    } catch (err) {
-      err.userMessage = 'Sorry, our developers are cray cray';
+    if(typeof(name) !== 'string') {
+      throw new TypeError('Hi there, this name has to be a string!');
     }
-    try {
-      if(typeof(dob) !== 'number') {
+
+    if(typeof(dob) !== 'number') {
         throw new TypeError ('Hi there, the date of birth has to be a number!');
-      }
-    } catch (err1) {
-      err.userMessage = 'Sorry, our developers are cray cray';
     }
+
     this.name = name;
     this.dob = dob;
   }
