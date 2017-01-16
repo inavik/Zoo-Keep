@@ -39,12 +39,10 @@
    */
   function BlueWhale(name, dob) {
     Animal.apply(this, [name, dob]);
+    return this;
   }
 
   BlueWhale.prototype = Object.create(Animal.prototype);// this sets up the chain
-  //here we say, what it means to be a BlueWhale is what it means to be an Animal
-  //base the BlueWhale prototype on the animal prototype
-  //above, we make bluewhale prototype equal to animal protype but we want to flip it back to bluewhale
   BlueWhale.prototype.constructor = BlueWhale; // this flips the constructor back to Bluewhale
   BlueWhale.prototype.breed = 'BlueWhale';
 
